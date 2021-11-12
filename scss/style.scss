@@ -1,0 +1,293 @@
+/*------------------- APLICACION SASS ------------------------*/
+
+/*----- COLORES PREDEFINIDOS ------*/
+
+$colorPrimario: #69f;
+$colorSecundario: #527acc;
+$colorFondoPredeterminado: white;
+$colorFondoClaro: #b3ccff;
+$colorFondoOscuro: #596680;
+
+/*------- PUBLICACIONES -----------*/
+
+.publicacion {
+  display: grid;
+  grid-template-areas:
+    "publicacion__imagen publicacion__imagen"
+    "publicacion__ubicacion publicacion__precio"
+    "publicacion__detalle publicacion__detalle";
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: 6fr 1fr 1fr;
+  height: 16rem;
+  transition: transform 1s;
+
+  div {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+
+  &:hover {
+    transform: scale(1.1, 1.1);
+  }
+
+  &__imagen {
+    grid-area: publicacion__imagen;
+  }
+
+  &__ubicacion {
+    grid-area: publicacion__ubicacion;
+    line-height: 2rem;
+    font-size: 1rem;
+    text-align: left;
+  }
+
+  &__precio {
+    grid-area: publicacion__precio;
+    line-height: 2rem;
+    font-size: 1rem;
+    text-align: right;
+  }
+
+  &__detalle {
+    grid-area: publicacion__detalle;
+    line-height: 2rem;
+    font-size: 1rem;
+    text-align: left;
+  }
+}
+
+@for $i from 1 through 6 {
+  #pub#{$i} {
+    grid-area: pub#{$i};
+
+    .publicacion__imagen {
+      background-image: url(..//imgs/pub#{$i}.jpg);
+    }
+  }
+}
+
+/*------------ ASIDE -----------------*/
+
+aside {
+  width: 16rem;
+  padding: 2rem 1rem 0rem 1rem;
+  align-self: flex-start;
+
+  div {
+    width: 14rem;
+    margin-bottom: 2rem;
+    transition: all 2s;
+
+    &:hover {
+      padding-left: 3rem;
+      background-color: $colorPrimario;
+    }
+  }
+}
+
+/*--------- CAJAS --------*/
+
+.cajaCentral {
+  width: 43rem;
+  height: auto;
+  padding: 3rem 3rem 0rem 3rem;
+  margin-right: 32rem;
+  align-content: stretch;
+
+  > div {
+    width: auto;
+    margin-bottom: 3rem;
+  }
+
+  &__cajaTexto {
+    width: auto;
+    margin-bottom: 3rem;
+    padding: 1rem;
+  }
+
+  &__cajaForm {
+    width: auto;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    padding-right: 0rem;
+  }
+}
+
+/*----- ADICIONALES BOOSTRAP -----*/
+
+nav {
+  div {
+    background-color: $colorPrimario;
+  }
+
+  &.navbar {
+    padding: 3rem;
+    background-color: $colorFondoClaro;
+  }
+}
+
+.navbar {
+  &-toggler {
+    width: 64px;
+  }
+
+  &-logo {
+    height: 3rem;
+    width: 4rem;
+    background-image: url(../imgs/logo.jpg);
+    background-repeat: no-repeat;
+    text-align: right;
+  }
+}
+
+/*----- ESTILOS DE CAJAS: COLORES Y BORDES -------*/
+
+.estiloA {
+  background-color: $colorFondoClaro;
+  border: 2px solid gray;
+}
+
+.estiloB,
+.estiloBinside > * {
+  background-color: $colorPrimario;
+  border: 2px solid black;
+}
+
+.estiloC,
+.estiloCinside > * {
+  background-color: $colorFondoOscuro;
+  border: 2px solid black;
+}
+
+.estiloD,
+.estiloDinside > * {
+  background-color: $colorSecundario;
+  border: 2px solid black;
+}
+
+/*---- ESTILOS DE TEXTOS -------*/
+
+.textoBlanco {
+  font-size: 1.5rem;
+  font-family: Ubuntu, sans-serif;
+  color: white;
+  text-align: center;
+}
+
+/*------ NO BOOSTRAP -----*/
+
+.flex-row,
+.flex-column {
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.flex-j-center {
+  justify-content: center;
+}
+
+.flex-j-spaceB {
+  justify-content: space-between;
+}
+
+main,
+footer {
+  padding: 3rem;
+  justify-content: center;
+}
+
+footer {
+  background-image: linear-gradient(to top, $colorFondoClaro, white);
+}
+
+/*----- ANIMACION HEADER ------*/
+
+@keyframes respiracion {
+  0% {
+    transform: scale(1, 1);
+  }
+  50% {
+    transform: scale(1.1, 1.1);
+  }
+  100% {
+    transform: scale(1, 1);
+  }
+}
+
+.logo:hover,
+nav ul li:hover,
+.ingreso:hover {
+  animation-name: respiracion;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-duration: 2.5s;
+}
+
+/*------- FORM ---------*/
+
+.form > * {
+  text-align: right;
+  padding-right: 5rem;
+}
+
+/* GRID PRINCIPAL */
+
+#publicaciones {
+  display: grid;
+  grid-template-areas:
+    "pubProm  pubProm pub1  pub2  banner"
+    "pub3     pub4    pub5  pub6  banner";
+  grid-template-rows: repeat(2, 16rem);
+  grid-template-columns: repeat(5, 1fr);
+  justify-content: stretch;
+  row-gap: 1rem;
+  column-gap: 1rem;
+  width: 77rem;
+  padding: 2rem;
+}
+
+#pubProm {
+  grid-area: pubProm;
+}
+
+#banner {
+  grid-area: banner;
+  background-image: url(../imgs/banner.jpg);
+}
+
+/* ANIMACION BANNER */
+
+@keyframes banner {
+  0% {
+    background-image: url(../imgs/banner.jpg);
+  }
+  35% {
+    background-image: url(../imgs/banner.jpg);
+  }
+  50% {
+    background-image: url(../imgs/banner2.jpg);
+  }
+  85% {
+    background-image: url(../imgs/banner2.jpg);
+  }
+  100% {
+    background-image: url(../imgs/banner.jpg);
+  }
+}
+
+#banner {
+  animation-name: banner;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+}
+
+/* GRID SECUNDARIO */
+
+#pubProm .publicacion__imagen {
+  background-image: url(../imgs/pubProm.jpg);
+}
