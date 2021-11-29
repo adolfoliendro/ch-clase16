@@ -1,11 +1,25 @@
 {
-  "name": "ch-clase14",
+  "name": "ch-final",
   "version": "1.0.0",
-  "description": "clase14",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "sass --watch scss/style.scss css/style.css"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-css": "node-sass --include-path scss scss/style.scss css/style.css",
+    "watch-css": "nodemon -e scss -x \"npm run build-css\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adolfoliendro/ch-clase16.git"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adolfoliendro/ch-clase16/issues"
+  },
+  "homepage": "https://github.com/adolfoliendro/ch-clase16#readme",
+  "devDependencies": {
+    "node-sass": "^6.0.1",
+    "nodemon": "^2.0.15"
+  }
 }
